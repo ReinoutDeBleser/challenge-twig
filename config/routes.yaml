@@ -1,0 +1,12 @@
+homepage:
+     path: /
+     # the controller value has the format 'controller_class::method_name'
+     controller: App\Controller\ShowMyNameController::show
+     methods: GET
+
+change:
+     path: /
+     # the controller value has the format 'controller_class::method_name'
+     controller: App\Controller\ShowMyNameController::change
+     methods: POST
+     #In Symfony routes, variable parts are wrapped in { ... } and they must have a unique name.
