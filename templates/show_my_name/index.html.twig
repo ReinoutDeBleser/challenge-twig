@@ -8,19 +8,9 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
     <div class="example-wrapper">
-
-
-        Hello {{ name }} !
-
+        Hello {{ name |title }} !
         <div class="example-wrapper">
-
             {{ form(form) }}
-
         </div>
-
-
-        <a href="{{ path('about-me')}}">About me</a>
-
-
     </div>
 {% endblock %}

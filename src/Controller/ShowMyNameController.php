@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -18,8 +19,6 @@ use Symfony\Component\HttpFoundation\Request;
 class ShowMyNameController extends AbstractController
 {
     //route towards showing name, homepage and should stay there, a form should be available to edit.
-
-
     #[Route('/show_my_name', name: 'show_my_name')]
     public function show(Request $request): Response
     {
@@ -29,7 +28,7 @@ class ShowMyNameController extends AbstractController
             $name = $session->get('name');
         }
         else {
-            $name = 'unknown';
+            $name = 'hey';
             $session->set('name', $name);
         }
 
@@ -52,7 +51,6 @@ class ShowMyNameController extends AbstractController
             //endpoint while submitting form
             return $this->redirectToRoute('homepage');
         }
-        echo $session->get("name");
         //endpoint on load & after submitting form
         return $this->renderForm('show_my_name/index.html.twig', [
             'name' => $name,
@@ -96,14 +94,17 @@ class ShowMyNameController extends AbstractController
     #[Route('/about-becode', name: 'about-me')]
     public function aboutMe(Request $request): Response
     {
+        $datetime = new DateTime;
+
         $session = $request->getSession();
-//
+
         if ($session->get('name') === null) {
             return $this->redirectToRoute('homepage');
         }
 
         return $this->render('about_me/index.html.twig', [
             'name' => $session->get('name'),
+            'date' => $datetime,
         ]);
     }
 }

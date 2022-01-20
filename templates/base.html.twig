@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,19 +9,20 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
-
+        {%  block phpscript %}
+            {% extends 'quotes.php' %}
+        {% endblock %}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
     <body>
     <aside> {% block menu %}
-            <a href="{{ path('show_my_name')}}">Homepage</a>
-            <a href="{{ path('about-me')}}">About me</a>
+            <a href="{{ path('show_my_name')}}">Homepage</a><br>
+            <a href="{{ path('about-me')}}">About me</a><br>
         {% endblock %}</aside>
+        {% block body %} {% endblock %}
 
-
-        {% block body %}{% endblock %}
     <footer>  © Becode </footer>
     </body>
 
