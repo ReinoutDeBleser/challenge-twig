@@ -9,9 +9,7 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
-        {%  block phpscript %}
-            {% extends 'quotes.php' %}
-        {% endblock %}
+
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
@@ -21,9 +19,9 @@
             <a href="{{ path('show_my_name')}}">Homepage</a><br>
             <a href="{{ path('about-me')}}">About me</a><br>
         {% endblock %}</aside>
-        {% block body %} {% endblock %}
-
-    <footer>  © Becode </footer>
+        {% block body %}  {% endblock %}
+    {{ quote() |nl2br }}
+    <footer>  © Becode  </footer>
     </body>
 
 </html>
